@@ -13,11 +13,16 @@ import {
 import { AntDesign } from '@expo/vector-icons';
 import Form from '../components/Form';
 import firebase from 'firebase';
+import { FlatList } from 'react-native-gesture-handler';
 
 const Main = ({ navigation }) => {
 
-    const title = navigation.getParam('id');
- 
+    const data  = navigation.getParam('data');
+
+    const onItemSelect = item => {
+        console.log('item', item);
+    };
+
     const firebaseConfig = {
         apiKey: "AIzaSyA5iz6HxbTYj1hoNM8Vz2rLOi2oz-GLmjU",
         authDomain: "sv-predict.firebaseapp.com",
@@ -27,6 +32,7 @@ const Main = ({ navigation }) => {
         appId: "1:37721500847:web:01291220b4c9c9e198f85a",
         measurementId: "G-NLFRW9NHEB"
     };
+
     if (!firebase.apps.length)
     {
         firebase.initializeApp(firebaseConfig);
@@ -60,6 +66,13 @@ const Main = ({ navigation }) => {
                     />
                 </View>
 
+                <TouchableOpacity
+                    style={styles.bottom}
+                    onPress={() => navigation.navigate('GraphForm')}
+                >
+                    <AntDesign name='pluscircle' size={55} />
+                </TouchableOpacity>
+
                 <Text style={styles.Recomanded}>
                     Recents
                 </Text>
@@ -69,27 +82,20 @@ const Main = ({ navigation }) => {
                     showsHorizontalScrollIndicator = {false}
                     style = {styles.MainTab}
                 >
-                    <Form
-                        passTitle = {title}
+                    <FlatList
+                        data = { data }
+                        horizontal = { true }
+                        keyExtractor = {data => data.number}
+                        renderItem = {({ item }) => {
+                            return (
+                                <Form
+                                    passTitle = {this.item.data}
+                                />
+                            );
+                        }}
                     />
-
-                    <Form
-
-                    />
-                
-                    <Form
-
-                    />
-
 
                 </ScrollView>
-
-                <TouchableOpacity 
-                    style = {styles.AddButton} 
-                    onPress={() => navigation.navigate('GraphForm')}
-                >
-                    <AntDesign name = 'pluscircle' size = {55}/>
-                </TouchableOpacity>
 
             </View>
         </ImageBackground>
@@ -193,10 +199,10 @@ const styles = StyleSheet.create ({
         color: "#a2a2db",
     },
 
-    AddButton : {
-        alignSelf : 'flex-end',
-        paddingVertical: 170,
-        paddingLeft : 20 
+    bottom: {
+        flex: 1,
+        justifyContent: 'center',
+        paddingTop : 43
     }
 
 });

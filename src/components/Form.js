@@ -3,9 +3,9 @@ import { View, Text, StyleSheet, Image, Button, Touchable } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
-const Form = ({ navigation }) => {
+const Form = ({ passTitle }) => {
 
-
+    const Title = passTitle;
 
     return(
         <View style = {{ paddingHorizontal : 10 }}>
@@ -20,7 +20,7 @@ const Form = ({ navigation }) => {
                     }}
                 >
                     <Image
-                        source={require("../images/3.jpg")}
+                        source={require("../images/2.jpg")}
                         style={{ width: 180, borderRadius: 10, height: 130 }}
                     />
                     <View
@@ -32,7 +32,7 @@ const Form = ({ navigation }) => {
                             <Text
                                 style={{ fontSize: 11, color: "#a2a2db", fontWeight: 'bold' }}
                             >
-                                3 kile banane
+                                {Title}
                             </Text>
                         </View>
                     </View>

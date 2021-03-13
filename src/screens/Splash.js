@@ -18,7 +18,7 @@ const Splash = ({ navigation }) => {
 
     setTimeout(() =>{
         navigation.navigate('Main');
-    }, 3000)
+    }, 2000)
 
     return (
 

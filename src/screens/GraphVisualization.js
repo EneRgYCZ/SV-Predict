@@ -8,13 +8,18 @@ import {
 import firebase from 'firebase'
 import { AntDesign } from '@expo/vector-icons'; 
 
+const data = []; 
+
 const GraphVisualization = ({ navigation }) => {
 
     const Title = navigation.getParam('id');
+    number = Math.floor(Math.random() * 99999);  
+
+    data.push ([Title, number])
 
     return (
         <View style = {styles.Main}>
-            <TouchableOpacity onPress={() => navigation.navigate('Main', {id : Title})}>
+            <TouchableOpacity onPress={() => navigation.navigate('Main', { data : data })}>
                 <AntDesign name='back' size = {40} />
             </TouchableOpacity>
             <View style = {styles.header}>
@@ -22,6 +27,7 @@ const GraphVisualization = ({ navigation }) => {
                     {Title}
                 </Text>
                 <Text>
+                    {number}
                 </Text>
             </View>
         </View>
