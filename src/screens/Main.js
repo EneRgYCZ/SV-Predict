@@ -85,7 +85,7 @@ const Main = ({ navigation }) => {
                     horizontal={true}
                     keyExtractor={data => data.number}
                     showsHorizontalScrollIndicator={false}
-                    renderItem={({ item }) => {
+                    renderItem = {({ item }) => {
                         return (
                             <Form
 
