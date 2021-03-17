@@ -39,66 +39,63 @@ const Main = ({ navigation }) => {
     }
 
     return (
-        <ImageBackground
-            source={require("../images/back.png")}
-            style={{ width: "100%", height: "100%" }}
-        >
-            <View style={styles.MainHeader}>
-            </View>
-
-            <View style={{ paddingHorizontal: 40, marginTop: 25 }}>
-                <Text style = {styles.GreetingText}>
-                    Hello
-                </Text>
-
-                <Text style = {styles.GreetingSubtext}>
-                    Welcome To SV-Predict 
-                </Text>
-
-                <View style={styles.SearchView}>
-                    <Image
-                        source={require("../images/search.png")}
-                        style={{ height: 19, width: 14 }}
-                    />
-                    <TextInput
-                        placeholder = "Search"
-                        style={{ paddingHorizontal: 20, fontSize: 15, color: "#6e0dff" }}
-                    />
+        <>
+            <ImageBackground
+                source={require("../images/back.png")}
+                style={{ width: "100%", height: "100%" }}
+            >
+                <View style={styles.MainHeader}>
                 </View>
 
-                <TouchableOpacity
-                    style={styles.bottom}
-                    onPress={() => navigation.navigate('GraphForm')}
-                >
-                    <AntDesign name='pluscircle' size={55} />
-                </TouchableOpacity>
+                <View style={{ paddingHorizontal: 40, marginTop: 25 }}>
+                    <Text style = {styles.GreetingText}>
+                        Hello
+                    </Text>
 
-                <Text style={styles.Recomanded}>
-                    Recents
-                </Text>
+                    <Text style = {styles.GreetingSubtext}>
+                        Welcome To SV-Predict 
+                    </Text>
 
-                <ScrollView
-                    horizontal
-                    showsHorizontalScrollIndicator = {false}
-                    style = {styles.MainTab}
-                >
-                    <FlatList
-                        data = { data }
-                        horizontal = { true }
-                        keyExtractor = {data => data.number}
-                        renderItem = {({ item }) => {
-                            return (
-                                <Form
-                                    passTitle = {this.item.data}
-                                />
-                            );
-                        }}
-                    />
+                    <View style={styles.SearchView}>
+                        <Image
+                            source={require("../images/search.png")}
+                            style={{ height: 19, width: 14 }}
+                        />
+                        <TextInput
+                            placeholder = "Search"
+                            style={{ paddingHorizontal: 20, fontSize: 15, color: "#6e0dff" }}
+                        />
+                    </View>
 
-                </ScrollView>
+                    <TouchableOpacity
+                        style={styles.bottom}
+                        onPress={() => navigation.navigate('GraphForm')}
+                    >
+                        <AntDesign name='pluscircle' size={55} />
+                    </TouchableOpacity>
 
-            </View>
-        </ImageBackground>
+                    <Text style={styles.Recomanded}>
+                        Recents
+                    </Text>
+
+                </View>
+
+                <FlatList
+                    data={data}
+                    horizontal={true}
+                    keyExtractor={data => data.number}
+                    showsHorizontalScrollIndicator={false}
+                    renderItem={({ item }) => {
+                        return (
+                            <Form
+
+                            />
+                        );
+                    }}
+                />
+
+            </ImageBackground>
+        </>
     );
 };
 
@@ -168,6 +165,7 @@ const styles = StyleSheet.create ({
         color: "#FFF",
         marginTop: 50,
         fontSize: 17,
+        paddingBottom : 15,
     },
 
     MainTab: { 

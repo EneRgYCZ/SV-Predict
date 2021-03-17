@@ -12,13 +12,13 @@ const Splash = ({ navigation }) => {
 
     Animated.timing(fadeAnim, {
         toValue: 1,
-        duration: 1500,
+        duration: 1000,
         useNativeDriver : false
     }).start();
 
     setTimeout(() =>{
         navigation.navigate('Main');
-    }, 2000)
+    }, 1500)
 
     return (
 

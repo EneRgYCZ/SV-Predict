@@ -5,7 +5,6 @@ import {
     StyleSheet,
     TouchableOpacity,
 } from 'react-native';
-import firebase from 'firebase'
 import { AntDesign } from '@expo/vector-icons'; 
 
 const data = []; 
@@ -13,7 +12,7 @@ const data = [];
 const GraphVisualization = ({ navigation }) => {
 
     const Title = navigation.getParam('id');
-    number = Math.floor(Math.random() * 99999);  
+    const number = Math.floor(Math.random() * 99999);  
 
     data.push ([Title, number])
 
