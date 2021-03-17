@@ -201,8 +201,10 @@ const styles = StyleSheet.create ({
 
     bottom: {
         flex: 1,
-        justifyContent: 'center',
-        paddingTop : 43
+        paddingVertical : 15,
+        flexDirection : 'row',
+        alignItems : 'flex-start',
+        justifyContent: "flex-start"
     }
 
 });
